@@ -1,0 +1,37 @@
+<div class="video-container" *ngIf="valid && videoData; else errorTemplate">
+  <!-- Video Player using HTML5 video element -->
+  <video #videoPlayer id="myVideo" (timeupdate)="onTimeUpdate($event)"
+    (loadedmetadata)="onLoadedMetadata($event)" (error)="onVideoError($event)">
+    <source [src]="'assets/video/videoplayback.mp4'" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Floating Container -->
+  <div id="floatingContainer" class="floating-container" [innerHTML]="currentHtmlContent" (click)="onVideoClick($event)"></div>
+
+  <!-- External Controls -->
+  <div id="controlsContainer" class="controls">
+    <button (click)="adjustTime(-5)">
+      <i class="fa-solid fa-rotate-left"></i>
+    </button>
+    <input
+      type="range"
+      min="0"
+      [max]="videoDuration"
+      [(ngModel)]="currentTime"
+      (input)="seekVideo(currentTime)"
+      style="pointer-events: none; width: 100px; display: none;"
+    />
+    <span>{{ currentTime | number:'1.0-0' }} / {{ videoDuration | number:'1.0-0' }}s</span>
+    <button (click)="adjustTime(5)">
+      <i class="fa-solid fa-rotate-right"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Error Template -->
+<ng-template #errorTemplate>
+  <div class="error-message">
+    <p>{{ errorMessage }}</p>
+  </div>
+</ng-template>

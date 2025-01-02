@@ -1,0 +1,8 @@
+<h1>{{ title }}</h1>
+<nav>
+  <ul>
+    <li *ngFor="let route of appRoutes">
+      <a [routerLink]="['/' + route.path]">{{ route.path }}</a>
+    </li>
+  </ul>
+</nav>
