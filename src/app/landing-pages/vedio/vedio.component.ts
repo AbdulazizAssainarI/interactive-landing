@@ -4,13 +4,14 @@ import { VideoData, VideoPart } from '../../shared/interfaces/video-data.model';
 import { EncryptionService } from '../../services/encryption/encryption.service';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { EncryptedPayload } from '../../shared/interfaces/data.model';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-vedio',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './vedio.component.html',
   styleUrls: ['./vedio.component.scss'],
 })
