@@ -8,6 +8,7 @@
     "build:github": "ng build --configuration=production --output-path=dist/gh-pages --base-href=https://AbdulazizAssainarI.github.io/interactive-landing/",
     "deploy:github": "npx angular-cli-ghpages --dir=dist/gh-pages/browser",
     "update:github": "npm run build:github && npm run deploy:github",
+    "update:github:main": "git checkout gh-pages && git merge main && npm run update:github",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:interactive-landing": "node dist/interactive-landing/server/server.mjs"
