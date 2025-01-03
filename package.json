@@ -5,6 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:github": "ng build --configuration=production --output-path=dist/gh-pages --base-href=https://AbdulazizAssainarI.github.io/interactive-landing/",
+    "deploy:github": "npx angular-cli-ghpages --dir=dist/gh-pages/browser",
+    "update:github": "npm run build:github && npm run deploy:github",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:interactive-landing": "node dist/interactive-landing/server/server.mjs"
@@ -15,7 +18,7 @@
     "@angular/common": "^19.0.0",
     "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",
-    "@angular/forms": "^19.0.0",
+    "@angular/forms": "^19.0.5",
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/platform-server": "^19.0.0",

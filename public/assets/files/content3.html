@@ -1,3 +1,14 @@
-<div style="width: 200px; height: 100px; background: #fff;">
+<div style="width: 200px; height: fit-content; background: #fff;">
     <h1>content 3.</H1>
+    <h1 id="status">false</h1>
+    <button onclick="setCheckboxFalse()">Click me</button>
 </div>
+
+<script>
+    function setCheckboxFalse() {
+      const checkbox = document.getElementById('togglePauseCheckbox');
+      if (checkbox) {
+        checkbox.checked = true;
+      }
+    }
+</script>

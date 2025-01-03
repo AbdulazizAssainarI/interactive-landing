@@ -86,9 +86,9 @@
           </div>
 
           <!-- JSON Data (Video Parts) -->
-          <div formArrayName="jsonData" class="mt-3">
+          <div formArrayName="videoParts" class="mt-3">
             <label>Video Parts:</label>
-            <div *ngFor="let part of jsonData.controls; let i = index" [formGroupName]="i" class="border p-3 mb-2">
+            <div *ngFor="let part of videoParts.controls; let i = index" [formGroupName]="i" class="border p-3 mb-2">
               <h5>Part {{ i + 1 }}</h5>
               <div class="form-group">
                 <label for="startTime">Start Time (s):</label>
@@ -111,7 +111,7 @@
                   Please enter a valid URL.
                 </div>
               </div>
-              <button type="button" class="btn btn-danger" (click)="removeVideoPart(i)" [disabled]="jsonData.length === 1">
+              <button type="button" class="btn btn-danger" (click)="removeVideoPart(i)" [disabled]="videoParts.length === 1">
                 Remove Part
               </button>
             </div>

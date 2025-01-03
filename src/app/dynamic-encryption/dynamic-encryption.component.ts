@@ -71,7 +71,7 @@ export class DynamicEncryptionComponent implements OnInit {
         }),
         htmlFileUrl: ['', [Validators.required, Validators.pattern(/^(http|https):\/\/[^ "]+$/)]],
         ccFileUrl: ['', [Validators.required, Validators.pattern(/^(http|https):\/\/[^ "]+$/)]],
-        jsonData: this.fb.array([this.createVideoPart()]),
+        videoParts: this.fb.array([this.createVideoPart()]),
       });
 
       dataGroup.addControl('video', videoGroup);
@@ -89,19 +89,19 @@ export class DynamicEncryptionComponent implements OnInit {
   }
 
   // Get JSON Data FormArray
-  get jsonData(): FormArray {
-    return (this.encryptionForm.get('data')?.get('video') as FormGroup)?.get('jsonData') as FormArray;
+  get videoParts(): FormArray {
+    return (this.encryptionForm.get('data')?.get('video') as FormGroup)?.get('videoParts') as FormArray;
   }
 
   // Add Video Part
   addVideoPart(): void {
-    this.jsonData.push(this.createVideoPart());
+    this.videoParts.push(this.createVideoPart());
   }
 
   // Remove Video Part
   removeVideoPart(index: number): void {
-    if (this.jsonData.length > 1) {
-      this.jsonData.removeAt(index);
+    if (this.videoParts.length > 1) {
+      this.videoParts.removeAt(index);
     }
   }
 
@@ -122,7 +122,7 @@ export class DynamicEncryptionComponent implements OnInit {
         screenSize: videoGroup.value.screenSize,
         htmlFileUrl: videoGroup.value.htmlFileUrl,
         ccFileUrl: videoGroup.value.ccFileUrl,
-        jsonData: videoGroup.value.jsonData as VideoPart[],
+        videoParts: videoGroup.value.videoParts as VideoPart[],
       };
     }
 
